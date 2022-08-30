@@ -1,14 +1,20 @@
 package com.example.employeepayrollapplication.model;
 
-import com.fasterxml.jackson.databind.DatabindException;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Date;
 
+/*Class for Object*/
 @Entity
+@Data
+@NoArgsConstructor
 public class EmployeeEntity {
     @Id
+    @GeneratedValue
     Long employeeId;
     String employeeName;
     String profilePic;
@@ -17,7 +23,6 @@ public class EmployeeEntity {
     String department;
     Date startDate;
     String notes;
-
     public EmployeeEntity(Long employeeId, String employeeName, String profilePic, String gender, Long salary, String department, Date startDate, String notes) {
         this.employeeId = employeeId;
         this.employeeName = employeeName;
@@ -27,10 +32,6 @@ public class EmployeeEntity {
         this.department = department;
         this.startDate = startDate;
         this.notes = notes;
-    }
-
-    public EmployeeEntity() {
-
     }
 
     public Long getEmployeeId() {

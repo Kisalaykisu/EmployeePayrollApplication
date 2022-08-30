@@ -1,5 +1,7 @@
 package com.example.employeepayrollapplication.service;
 
+import com.example.employeepayrollapplication.dto.EmpDto;
+import com.example.employeepayrollapplication.model.EmployeeEntity;
 import com.example.employeepayrollapplication.model.EmployeeEntity;
 import com.example.employeepayrollapplication.repo.Repo;
 import org.springframework.beans.factory.annotation.Autowired;
