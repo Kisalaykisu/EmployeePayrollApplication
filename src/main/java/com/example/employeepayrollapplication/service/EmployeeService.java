@@ -2,6 +2,7 @@ package com.example.employeepayrollapplication.service;
 
 import com.example.employeepayrollapplication.dto.EmpDto;
 import com.example.employeepayrollapplication.model.EmployeeEntity;
+import com.example.employeepayrollapplication.dto.EmpDto;
 import com.example.employeepayrollapplication.model.EmployeeEntity;
 import com.example.employeepayrollapplication.repo.Repo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,10 @@ public class EmployeeService {
         return "This is Employee Payroll App";
     }
 
-    public EmployeeEntity saveData(EmployeeEntity empData) {
-        repository.save(empData);
-        return empData;
+    public EmployeeEntity saveData(EmpDto empData) {
+        EmployeeEntity newEmpData = new EmployeeEntity(empData);
+        repository.save(newEmpData);
+        return newEmpData;
     }
 
     public Optional<EmployeeEntity> findById(Long id) {
@@ -31,10 +33,10 @@ public class EmployeeService {
         return repository.findAll();
     }
 
-    public EmployeeEntity editData(EmployeeEntity empData, Long id) {
+    public EmployeeEntity editData(EmpDto empData, Long id) {
         EmployeeEntity existingGreet = repository.findById(id).orElse(null);
         if (existingGreet != null) {
-            existingGreet.setEmployeeId(empData.getEmployeeId());
+//            existingGreet.setEmployeeId(empData.getEmployeeId());
             existingGreet.setEmployeeName(empData.getEmployeeName());
             existingGreet.setProfilePic(empData.getProfilePic());
             existingGreet.setGender(empData.getGender());
